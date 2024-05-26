@@ -1103,8 +1103,8 @@ th{
   transition: background 0.3s ease-out;
 }
 .navbar-toggler svg.navbar-icon {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 .navbar-nav .nav-item a.nav-link {
   font-size: 0.7619em;
@@ -1112,11 +1112,11 @@ th{
   letter-spacing: 0.09em;
   color: var(--black-color);
 }
-.navbar-nav .nav-item a.nav-link.active, 
-.navbar-nav .nav-item a.nav-link:focus, 
-.navbar-nav .nav-item a.nav-link:hover {
-  color: var(--primary-color);
-}
+/*.navbar-nav .nav-item a.nav-link.active, */
+/*.navbar-nav .nav-item a.nav-link:focus, */
+/*.navbar-nav .nav-item a.nav-link:hover {*/
+/*  !*color: var(--primary-color);*!*/
+/*}*/
 .modal {
   --bs-modal-zindex: 99999;
 }
@@ -1342,13 +1342,13 @@ select#input-sort {
   background: none;
   border: none;
 }
-.nav-tabs button.nav-link.active {
-  color: var(--primary-color);
-  background: none;
-}
-.nav-tabs button.nav-link:hover {
-  color: var(--primary-color);
-}
+/*.nav-tabs button.nav-link.active {*/
+/*  color: var(--primary-color);*/
+/*  background: none;*/
+/*}*/
+/*.nav-tabs button.nav-link:hover {*/
+/*  color: var(--primary-color);*/
+/*}*/
 
 @media screen and (max-width: 991px) {
   .product-tabs .review-item{
@@ -1358,4 +1358,13 @@ select#input-sort {
   .product-tabs .review-item .image-holder{
     margin-bottom: 10px;
   }
+}
+
+.header-nav {
+
+}
+
+#navbar {
+  margin-right: 60px;
+  gap: 50px;
 }

@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>onlineshop</groupId>
-    <artifactId>Book-Shop</artifactId>
+    <artifactId>Book-Shop-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Book-Shop</name>
     <description>Book shop with Spring Boot</description>
@@ -22,6 +22,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mustache</artifactId>
+            <version>3.2.1</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -31,12 +32,26 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>13.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>

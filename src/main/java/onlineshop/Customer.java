@@ -1,6 +1,7 @@
 package onlineshop;
 
 import onlineshop.enums.Gender;
+import onlineshop.merchandise.Cart;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
