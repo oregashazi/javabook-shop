@@ -260,6 +260,7 @@
 						</div>
 						<div class="book-info__footer">
 							<p>Preis: {{price}}$</p>
+							<p>Quantity: {{quantity}}</p>
 						</div>
 					</div>
 				</div>
@@ -269,7 +270,8 @@
 		</div>
 
 		<div class="cart__footer">
-			<h1>Total: {{grandTotal}}$</h1>
+			<h1>Total: {{totalWithDiscounts}}$</h1>
+			<span class="small__text">* lieferung ( und rabatt )</span>
 			<div class="cart__checkout">
 				<a href="checkout.html" class="cart__checkout-link">
 					<h1>

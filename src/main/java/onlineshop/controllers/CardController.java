@@ -79,25 +79,29 @@ public class CardController {
         return "redirect:/cart.html";
     }
 
+//    @GetMapping(value = {"/remove/{articleNo}"})
+//    public String removeFromCart(
+//            @PathVariable(name = "articleNo") Integer articleNo,
+//            @RequestHeader(value = "Referer", required = false) String referer,
+//            RedirectAttributes atts) {
+//        String message = "Article with article no. \"" + articleNo + "\" not found in cart.";
+//        Article article = shop.getArticleByNumber(articleNo);
+//        if (article != null && cart.removeArticle(articleNo)) {
+//            message = "Article \"" + article.getTitle() + "\" removed from cart.";
+//        }
+//        atts.addFlashAttribute(MESSAGE, message);
+//        atts.addFlashAttribute(SHOW_MESSAGE, true);
+//
+//        return "redirect:/cart.html";
+//    }
+
     @GetMapping(value = {"/remove/{articleNo}"})
-    public String removeFromCart(
-            @PathVariable(name = "articleNo") Integer articleNo,
-            @RequestHeader(value = "Referer", required = false) String referer,
-            RedirectAttributes atts) {
+    public String removeFromCart(@PathVariable(name = "articleNo") Integer articleNo, RedirectAttributes atts) {
         String message = "Article with article no. \"" + articleNo + "\" not found in cart.";
         Article article = shop.getArticleByNumber(articleNo);
         if (article != null && cart.removeArticle(articleNo)) {
             message = "Article \"" + article.getTitle() + "\" removed from cart.";
         }
-        atts.addFlashAttribute(MESSAGE, message);
-        atts.addFlashAttribute(SHOW_MESSAGE, true);
-
-        // Если реферер содержит 'index.html', не перенаправлять
-        if (referer != null && referer.contains("index.html")) {
-            return ""; // Возвращаем представление index (имя view может отличаться)
-        }
-        // В противном случае перенаправляем на cart.html
         return "redirect:/cart.html";
     }
-
 }

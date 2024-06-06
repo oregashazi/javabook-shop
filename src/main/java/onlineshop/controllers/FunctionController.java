@@ -19,6 +19,8 @@ public class FunctionController {
         view.addAttribute("cartItems", cartItems);
         view.addAttribute("numOfCartItems", cart.getNumOfItems());
         view.addAttribute("grandTotal", cart.getGrandTotal());
+        view.addAttribute("totalWithDiscounts", cart.getTotalWithDiscounts());
+        view.addAttribute("totalDiscountAmount", cart.getTotalDiscountAmount());
     }
 }
 

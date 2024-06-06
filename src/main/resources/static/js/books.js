@@ -257,11 +257,70 @@ document.querySelectorAll(".cart__button").forEach(button => {
     })
 })
 
+var rabatt = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
     const totalPrice = document.querySelector("#total__price");
     const lieferungPrice = 3.99 + parseFloat(totalPrice.innerText);
     const grandTotalPrice = document.querySelector("#grand-total__price");
     grandTotalPrice.innerText = lieferungPrice.toFixed(2);
+
+    const cardDiscount = document.querySelectorAll(".cart__discount");
+
+    cardDiscount.forEach(discount => {
+        if (parseInt(discount.getAttribute("data-discount")) === 0) {
+            discount.style.display = "none";
+        } else {
+            const closest = discount.closest(".cart-item");
+            const discountEL = parseInt(discount.getAttribute("data-discount"));
+            const originalPrice = parseFloat(closest.querySelector(".price").getAttribute("data-currency-usd"));
+            const finalPrice = originalPrice - ((originalPrice * discountEL) / 100);
+            const roundedFinalPrice = Math.round(finalPrice * 100) / 100;
+            closest.querySelector(".total-price span").innerText = `$${roundedFinalPrice}`;
+
+            rabatt = rabatt + (originalPrice - roundedFinalPrice);
+        }
+    })
+
+    document.querySelector(".books__total-rabatt").innerText = rabatt.toFixed(2);
+    const newTotal = (parseFloat(document.querySelector("#grand-total__price").innerText) - rabatt.toFixed(2)).toFixed(2);
+    document.querySelector("#grand-total__price").innerText = newTotal;
 })
+
+
+document.querySelectorAll(".cart-delete__book").forEach(button => {
+    button.addEventListener("click", (e) => {
+        const target = e.target.closest(".cart-cross-outline");
+
+        console.log(target);
+
+        const id = parseInt(target.getAttribute("data-id-produkt"));
+        console.log(id);
+        fetch(window.location.origin + `/cart/remove/${id}`)
+            .then(response => {
+                location.reload();
+            })
+    });
+});
+
+
+
+// CHECKOUT
+
+
+// if (document.querySelector("#checkout")) {
+//
+//     fetch(window.location.origin + "/cart.html")
+//         .then(response => response.text())
+//         .then(html => {
+//             const parser = new DOMParser();
+//             const newDoc = parser.parseFromString(html, 'text/html');
+//             const newBooksContainer = newDoc.querySelector('.pb-3');
+//
+//             const currentCartTotals = document.querySelector(".cart-totals");
+//             currentCartTotals.innerHTML = newBooksContainer.innerHTML;
+//         })
+//
+// }
+
 

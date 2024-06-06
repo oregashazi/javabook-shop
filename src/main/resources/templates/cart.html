@@ -54,7 +54,7 @@
 									<div class="card-detail">
 										<h5 class="mt-2"><a href="/details/{{articleNo}}">{{title}}</a></h5>
 										<div class="card-price">
-											<span class="price text-primary fw-light" data-currency-usd="$2000.00">${{price}}</span>
+											<span class="price text-primary fw-light" data-currency-usd={{price}}>${{price}} <span class="cart__discount" data-discount={{discount}}>- {{discount}}%</span></span>
 										</div>
 									</div>
 								</div>
@@ -92,7 +92,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-4 book-price">
 									<div class="total-price">
 										<span class="money fs-2 fw-light text-primary">${{totalPriceFormatted}}</span>
 									</div>
@@ -100,10 +100,10 @@
 							</div>
 						</div>
 						<div class="col-lg-1 col-md-2">
-							<div class="cart-cross-outline">
-								<a href="#">
-									<svg class="cart-cross-outline" width="38" height="38">
-										<use xlink:href="#cart-cross-outline"></use>
+							<div class="cart-cross-outline" data-id-produkt={{articleNo}}>
+								<a class="cart-delete__book" href="#">
+									<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+										<path d="M 12 2 C 6.4889971 2 2 6.4889971 2 12 C 2 17.511003 6.4889971 22 12 22 C 17.511003 22 22 17.511003 22 12 C 22 6.4889971 17.511003 2 12 2 z M 12 4 C 16.430123 4 20 7.5698774 20 12 C 20 16.430123 16.430123 20 12 20 C 7.5698774 20 4 16.430123 4 12 C 4 7.5698774 7.5698774 4 12 4 z M 8.7070312 7.2929688 L 7.2929688 8.7070312 L 10.585938 12 L 7.2929688 15.292969 L 8.7070312 16.707031 L 12 13.414062 L 15.292969 16.707031 L 16.707031 15.292969 L 13.414062 12 L 16.707031 8.7070312 L 15.292969 7.2929688 L 12 10.585938 L 8.7070312 7.2929688 z"></path>
 									</svg>
 								</a>
 							</div>
@@ -136,6 +136,15 @@
 							</td>
 						</tr>
 						<tr class="order-total pt-2 pb-2 border-bottom">
+							<th>Rabatt</th>
+							<td data-title="Total">
+							  <span class="price-amount amount text-primary ps-5 fw-light">
+								<bdi>
+								  <span class="price-currency-symbol">$</span><span class="books__total-rabatt">0</span></bdi>
+							  </span>
+							</td>
+						</tr>
+						<tr class="order-total pt-2 pb-2 border-bottom">
 							<th>Total</th>
 							<td data-title="Total">
 							  <span class="price-amount amount text-primary ps-5 fw-light">
@@ -149,7 +158,7 @@
 				</div>
 				<div class="button-wrap d-flex flex-wrap gap-3">
 					<a class="btn" href="/index.html">Continue Shopping</a>
-					<button class="btn">Proceed to checkout</button>
+					<a class="btn" href="/checkout.html">Proceed to checkout</a>
 				</div>
 			</div>
 		</div>

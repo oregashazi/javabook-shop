@@ -28,7 +28,7 @@
 	</div>
 </section>
 
-<section class="checkout-wrap padding-medium">
+<section id="checkout" class="checkout-wrap padding-medium">
 	<div class="container">
 		<form class="form-group">
 			<div class="row d-flex flex-wrap">
@@ -88,11 +88,20 @@
 							<table cellspacing="0" class="table text-capitalize">
 								<tbody>
 								<tr class="subtotal pt-2 pb-2 border-top border-bottom">
-									<th>Subtotal</th>
+									<th>Lieferung</th>
 									<td data-title="Subtotal">
                           <span class="price-amount amount text-primary ps-5 fw-light">
                             <bdi>
-                              <span class="price-currency-symbol">$</span>2,400.00
+                              <span class="price-currency-symbol">$</span>3.99
+                            </bdi>
+                          </span>
+									</td>
+								<tr class="subtotal pt-2 pb-2 border-top border-bottom">
+									<th>Discount</th>
+									<td data-title="Subtotal">
+                          <span class="price-amount amount text-primary ps-5 fw-light">
+                            <bdi>
+                              <span class="price-currency-symbol">$</span>{{totalDiscountAmount}}
                             </bdi>
                           </span>
 									</td>
@@ -102,7 +111,7 @@
 									<td data-title="Total">
                           <span class="price-amount amount text-primary ps-5 fw-light">
                             <bdi>
-                              <span class="price-currency-symbol">$</span>2,400.00</bdi>
+                              <span class="price-currency-symbol">$</span>{{totalWithDiscounts}}</bdi>
                           </span>
 									</td>
 								</tr>
@@ -112,12 +121,11 @@
 						<div class="list-group">
 							<label class="list-group-item d-flex gap-2 border-0">
 								<input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios"
-											 id="listGroupRadios1" value="" checked>
+									   id="listGroupRadios1" value="" checked>
 								<span>
-                      <p class="mb-1">Direct bank transfer</p>
-                      <small>Make your payment directly into our bank account. Please use your Order ID. Your order will
-                        shipped after funds have cleared in our account.</small>
-                    </span>
+                      			<p class="mb-1">Direct bank transfer</p>
+                      				<small>Make your payment directly into our bank account. Please use your Order ID. Your order will
+                        			shipped after funds have cleared in our account.</small>
 							</label>
 							<label class="list-group-item d-flex gap-2 border-0">
 								<input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios"

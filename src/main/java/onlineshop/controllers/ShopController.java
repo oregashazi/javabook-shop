@@ -48,15 +48,6 @@ public class ShopController extends FunctionController {
         List<Book> books = new ArrayList<>(shop.sortAndPaginateArticles(sort, from, to, search));
         List<Book> synchronizedBooks = Collections.synchronizedList(books);
 
-//        List<Book> allBooks = shop.sortAndPaginateArticles(sort, 0, shop.getNumOfArticles(), search);
-//        String finalSearch = search;
-//        List<Book> filteredBooks = allBooks.stream()
-//                .filter(book -> book.getTitle().toLowerCase().contains(finalSearch.toLowerCase()))
-//                .collect(Collectors.toList());
-//
-//        List<Book> paginatedBooks = filteredBooks.subList(Math.min(from, filteredBooks.size()), Math.min(to, filteredBooks.size()));
-//        List<Book> synchronizedBooks = Collections.synchronizedList(paginatedBooks);
-
         getCartItems(model);
 
         log.info("success. number of books : {}", synchronizedBooks.size());

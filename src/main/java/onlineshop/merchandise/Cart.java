@@ -42,6 +42,28 @@ public class Cart {
         return Shop.df.format(total);
     }
 
+    public String getTotalWithDiscounts() {
+        double totalWithDiscounts = 0;
+        for (CartItem item : items) {
+            double itemTotal = item.getTotalPrice();
+            double discountAmount = itemTotal * (item.getDiscount() / 100.0);
+            totalWithDiscounts += itemTotal - discountAmount;
+        }
+        // Lieferung
+        totalWithDiscounts = totalWithDiscounts + 3.99;
+        return Shop.df.format(totalWithDiscounts);
+    }
+
+    public String getTotalDiscountAmount() {
+        double totalDiscount = 0;
+        for (CartItem item : items) {
+            double itemTotal = item.getTotalPrice();
+            double discountAmount = itemTotal * (item.getDiscount() / 100.0);
+            totalDiscount += discountAmount;
+        }
+        return Shop.df.format(totalDiscount);
+    }
+
 
     public void addArticle(Book book) {
         CartItem item = findItem(book.getArticleNo());

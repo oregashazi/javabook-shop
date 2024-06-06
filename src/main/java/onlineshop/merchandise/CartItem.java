@@ -17,6 +17,7 @@ public class CartItem extends Book {
         this.manufacturer = book.manufacturer;
         this.price = book.price;
         this.image = book.image;
+        this.discount = book.discount;
 
         this.author = book.author;
         this.pages = book.pages;
