@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 @Controller
 public class ShopController extends FunctionController {
     private static Logger log = LogManager.getLogger(ShopController.class);
-    public static final int PAGE_SIZE = 4;
+    public static final int PAGE_SIZE = 12;
 
     @Autowired
     Shop shop;

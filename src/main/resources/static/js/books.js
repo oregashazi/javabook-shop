@@ -71,37 +71,34 @@ function showActiveFilter() {
 
 
 
-const cart = document.querySelector(".book__cart");
+const carts = document.querySelectorAll(".book__cart");
 const cartContainer = document.querySelector(".header__overflow");
 const closeButton = document.getElementById("close-cart");
 console.log(closeButton);
 
-if (cartContainer) {
-    cart.addEventListener("click", (e) => {
-        if (cartContainer.classList.contains("-close")) {
-            var tl = gsap.timeline();
+    carts.forEach(cart => {
+        cart.addEventListener("click", (e) => {
+            if (cartContainer.classList.contains("-close")) {
+                var tl = gsap.timeline();
 
-            // if (document.querySelector(".offcanvas") && document.querySelector(".offcanvas").classList.contains("show")) {
-            //     document.querySelector(".offcanvas").classList.remove("show");
-            //     document.querySelector(".offcanvas-backdrop").classList.remove("show");
-            // }
-
-            // document.querySelector(".offcanvas-backdrop").classList.add("show");
-
-            tl.to("body", { overflow: "hidden", duration: 0.1 });
-            tl.to(cartContainer, {
-                position: "fixed",
-                duration: 0,
-            });
-            tl.to(".cart__container", {
-                bottom: "auto",
-                duration: 0.5
-            });
-            cartContainer.classList.add("-open");
-            cartContainer.classList.remove("-close");
-        }
-    });
-}
+                // document.querySelector(".offcanvas-backdrop").classList.add("show");
+                tl.to("body", { overflow: "hidden", duration: 0.1 });
+                tl.to(cartContainer, {
+                    position: "fixed",
+                    duration: 0,
+                });
+                tl.set(".cart__container", {
+                    display: "block",
+                });
+                tl.to(".cart__container", {
+                    bottom: "auto",
+                    duration: 0.5
+                });
+                cartContainer.classList.add("-open");
+                cartContainer.classList.remove("-close");
+            }
+        });
+    })
 
 if (closeButton) {
     closeButton.addEventListener("click", (e) => {
@@ -111,26 +108,34 @@ if (closeButton) {
             duration: 0.5,
             delay: 0.2
         });
+        tl.set(".cart__container", {
+            display:"none",
+        })
         // tl.to(".offcanvas-backdrop", { className: "-=show", duration: 0.2 });
         tl.to(cartContainer, {
             position: "static",
             duration: 0,
         });
         // document.querySelector(".offcanvas-backdrop").remove();
-        tl.to("body", { position: "relative", overflow: "auto", duration: 0 });
+        tl.to("body", { overflow: "auto", duration: 0 });
         cartContainer.classList.add("-close");
         cartContainer.classList.remove("-open");
     });
 }
 
 
-document.querySelector(".search-form").addEventListener("submit", (e) => {
+document.querySelector(".search__form").addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(e);
+
+    // Hide search Bar
+
+    if (searchEl.classList.contains("--is-visible")) {
+        searchEl.classList.add("--is-hidden");
+    }
 
     const urlParams = new URLSearchParams(window.location.search);
     const sortParam = urlParams.get("sort");
-    const searchValue = document.querySelector("#search-form").value;
+    const searchValue = document.querySelector(".search__input").value;
 
     urlParams.delete("s");
 
@@ -140,22 +145,123 @@ document.querySelector(".search-form").addEventListener("submit", (e) => {
 
     window.history.replaceState({}, '', `${location.pathname}?${urlParams}`);
 
-    // Hide Search Bar
+    fetch(window.location.href)
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const newDoc = parser.parseFromString(html, 'text/html');
+            const newBooksContainer = newDoc.getElementById('booksContainer');
+            if (newBooksContainer) {
+                const currentBooksContainer = document.getElementById('booksContainer');
+                currentBooksContainer.innerHTML = newBooksContainer.innerHTML;
+            }
+            discountPrice();
+        });
 
-    document.querySelector(".search-popup").classList.remove("is-visible");
+})
 
-    // fetch(window.location.href)
-    //     .then(response => response.text())
-    //     .then(html => {
-    //         const parser = new DOMParser();
-    //         const newDoc = parser.parseFromString(html, 'text/html');
-    //         const newBooksContainer = newDoc.getElementById('booksContainer');
-    //         if (newBooksContainer) {
-    //             const currentBooksContainer = document.getElementById('booksContainer');
-    //             currentBooksContainer.innerHTML = newBooksContainer.innerHTML;
-    //         }
-    //         discountPrice();
-    //     });
+const searchEl= document.querySelector(".search__el");
+const closeSearchButton = document.querySelector(".search__close-button");
+const searchButtons = document.querySelectorAll(".search__button");
+// var offCanvas = document.querySelector(".offcanvas");
 
+searchButtons.forEach(button => {
+    button.addEventListener("click", function () {
+        if (searchEl.classList.contains("--is-hidden")) {
+            searchEl.classList.remove("--is-hidden");
+        }
+        searchEl.classList.add("--is-visible");
+    });
+});
+
+closeSearchButton.addEventListener("click", () => {
+    searchEl.classList.remove("--is-visible");
+    searchEl.classList.add("--is-hidden");
+
+    if (document.querySelector(".offcanvas-backdrop")) {
+        document.querySelector(".offcanvas-backdrop").remove();
+    }
+});
+
+var openMenu = document.querySelector(".menu__open-button");
+var closeMenu = document.querySelector(".menu__close-button");
+var menu = document.querySelector(".menu__container");
+var menuBackground = document.querySelector(".menu__background");
+
+openMenu.addEventListener("click", () => {
+    if (menu.classList.contains("--is-hidden")) {
+        menu.classList.remove("--is-hidden");
+        menu.classList.add("--is-visible");
+        menuBackground.classList.remove("--is-hidden");
+        menuBackground.classList.add("--is-visible");
+    }
+});
+
+closeMenu.addEventListener("click", () => {
+    if (menu.classList.contains("--is-visible")) {
+        menu.classList.remove("--is-visible");
+        menu.classList.add("--is-hidden");
+        menuBackground.classList.remove("--is-visible");
+        menuBackground.classList.add("--is-hidden");
+    }
+})
+
+
+document.querySelectorAll(".quantity__input").forEach(el => {
+    let timeout = null;
+
+    el.addEventListener("input", (e) => {
+        e.preventDefault();
+
+        if (timeout !== null) {
+            clearTimeout(timeout);
+        }
+
+        timeout = setTimeout(() => {
+            const target = e.target;
+            const id = parseInt(target.getAttribute("data-id-produkt"));
+            const value = target.value;
+
+            fetch(window.location.origin + `/cart/setquantity/${id}/${value}`)
+                .then(response => {
+                    location.reload();
+                })
+
+
+        }, 1000);
+    });
+});
+
+document.querySelectorAll(".cart__button").forEach(button => {
+    let timeout = null;
+
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (timeout !== null) {
+            clearTimeout(timeout);
+        }
+
+        const target = e.target.parentElement.closest('.input-group').querySelector(".quantity__input");
+
+        timeout = setTimeout(() => {
+            const id = parseInt(target.getAttribute("data-id-produkt"));
+            const value = parseInt(target.value);
+
+            fetch(window.location.origin + `/cart/setquantity/${id}/${value}`)
+                .then(response => {
+                    location.reload();
+                })
+
+        }, 1000);
+    })
+})
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const totalPrice = document.querySelector("#total__price");
+    const lieferungPrice = 3.99 + parseFloat(totalPrice.innerText);
+    const grandTotalPrice = document.querySelector("#grand-total__price");
+    grandTotalPrice.innerText = lieferungPrice.toFixed(2);
 })
 

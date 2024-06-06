@@ -40,20 +40,21 @@
 					</div>
 				</div>
 
+				{{#cartItems}}
 				<div class="cart-item border-bottom padding-small">
 					<div class="row align-items-center">
 						<div class="col-lg-4 col-md-3">
 							<div class="cart-info d-flex gap-2 flex-wrap align-items-center">
 								<div class="col-lg-5">
 									<div class="card-image">
-										<img src="images/cart-item1.png" alt="cart-img" class="img-fluid border rounded-3">
+										<img src="{{image}}" alt="{{title}}" class="img-fluid border rounded-3">
 									</div>
 								</div>
 								<div class="col-lg-4">
 									<div class="card-detail">
-										<h5 class="mt-2"><a href="single-product.html">The Emerald Crown</a></h5>
+										<h5 class="mt-2"><a href="/details/{{articleNo}}">{{title}}</a></h5>
 										<div class="card-price">
-											<span class="price text-primary fw-light" data-currency-usd="$2000.00">$2000.00</span>
+											<span class="price text-primary fw-light" data-currency-usd="$2000.00">${{price}}</span>
 										</div>
 									</div>
 								</div>
@@ -65,30 +66,35 @@
 									<div class="product-quantity my-2 my-2">
 										<div class="input-group product-qty align-items-center" style="max-width: 150px;">
                           <span class="input-group-btn">
-                            <button type="button" class="bg-white shadow border rounded-3 fw-light quantity-left-minus"
+                            <a href="/cart/decrease/{{articleNo}}" class="bg-white shadow border rounded-3 fw-light quantity-left-minus cart__button"
 																		data-type="minus" data-field="">
-                              <svg width="16" height="16">
-                                <use xlink:href="#minus"></use>
-                              </svg>
-                            </button>
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+									<defs>
+									</defs>
+									<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+										<path d="M 86.5 48.5 h -83 C 1.567 48.5 0 46.933 0 45 s 1.567 -3.5 3.5 -3.5 h 83 c 1.933 0 3.5 1.567 3.5 3.5 S 88.433 48.5 86.5 48.5 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(29,29,27); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+										<path d="M 86.5 48.5 h -83 C 1.567 48.5 0 46.933 0 45 s 1.567 -3.5 3.5 -3.5 h 83 c 1.933 0 3.5 1.567 3.5 3.5 S 88.433 48.5 86.5 48.5 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(29,29,27); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+									</g>
+									</svg>
+                            </a>
                           </span>
-											<input type="text" id="quantity" name="quantity"
-														 class="form-control bg-white shadow border rounded-3 py-2 mx-2 input-number text-center"
-														 value="1" min="1" max="100" required>
-											<span class="input-group-btn">
-                            <button type="button" class="bg-white shadow border rounded-3 fw-light quantity-right-plus"
+						<input type="text" id="quantity" name="quantity"
+									 class="form-control bg-white shadow border rounded-3 py-2 mx-2 input-number text-center quantity__input"
+									 value="{{quantity}}" min="1" max="100" data-id-produkt={{articleNo}} data-price={{price}} required>
+						<span class="input-group-btn">
+                            <a href="/cart/increase/{{articleNo}}" class="bg-white shadow border rounded-3 fw-light quantity-right-plus cart__button"
 																		data-type="plus" data-field="">
-                              <svg width="16" height="16">
-                                <use xlink:href="#plus"></use>
-                              </svg>
-                            </button>
+                              	<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24">
+									<path fill-rule="evenodd" d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z"></path>
+								</svg>
+                            </a>
                           </span>
 										</div>
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="total-price">
-										<span class="money fs-2 fw-light text-primary">$2000.00</span>
+										<span class="money fs-2 fw-light text-primary">${{totalPriceFormatted}}</span>
 									</div>
 								</div>
 							</div>
@@ -104,101 +110,45 @@
 						</div>
 					</div>
 				</div>
-				<div class="cart-item border-bottom padding-small">
-					<div class="row align-items-center">
-						<div class="col-lg-4 col-md-3">
-							<div class="cart-info d-flex gap-2 flex-wrap align-items-center">
-								<div class="col-lg-5">
-									<div class="card-image">
-										<img src="images/cart-item2.png" alt="cart-img" class="img-fluid border rounded-3">
-									</div>
-								</div>
-								<div class="col-lg-4">
-									<div class="card-detail">
-										<h5 class="mt-2"><a href="single-product.html">The Last Enchantment</a></h5>
-										<div class="card-price">
-											<span class="price text-primary fw-light" data-currency-usd="$2000.00">$400.00</span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6 col-md-7">
-							<div class="row d-flex">
-								<div class="col-lg-6">
-									<div class="product-quantity my-2">
-										<div class="input-group product-qty align-items-center" style="max-width: 150px;">
-                          <span class="input-group-btn">
-                            <button type="button" class="bg-white shadow border rounded-3 fw-light quantity-left-minus"
-																		data-type="minus" data-field="">
-                              <svg width="16" height="16">
-                                <use xlink:href="#minus"></use>
-                              </svg>
-                            </button>
-                          </span>
-											<input type="text" id="quantity" name="quantity"
-														 class="form-control bg-white shadow border rounded-3 py-2 mx-2 input-number text-center"
-														 value="1" min="1" max="100" required>
-											<span class="input-group-btn">
-                            <button type="button" class="bg-white shadow border rounded-3 fw-light quantity-right-plus"
-																		data-type="plus" data-field="">
-                              <svg width="16" height="16">
-                                <use xlink:href="#plus"></use>
-                              </svg>
-                            </button>
-                          </span>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-4">
-									<div class="total-price">
-										<span class="money fs-2 fw-light text-primary">$400.00</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-1 col-md-2">
-							<div class="cart-cross-outline">
-								<a href="#">
-									<svg class="cart-cross-outline" width="38" height="38">
-										<use xlink:href="#cart-cross-outline"></use>
-									</svg>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				{{/cartItems}}
 			</div>
 			<div class="cart-totals padding-medium pb-0">
 				<h3 class="mb-3">Cart Totals</h3>
 				<div class="total-price pb-3">
 					<table cellspacing="0" class="table text-capitalize">
 						<tbody>
-						<tr class="subtotal pt-2 pb-2 border-top border-bottom">
-							<th>Subtotal</th>
-							<td data-title="Subtotal">
-                      <span class="price-amount amount text-primary ps-5 fw-light">
-                        <bdi>
-                          <span class="price-currency-symbol">$</span>2,400.00
-                        </bdi>
-                      </span>
+						<tr class="order-total pt-2 pb-2 border-bottom">
+							<th>Lieferung</th>
+							<td data-title="Total">
+							  <span class="price-amount amount text-primary ps-5 fw-light">
+								<bdi>
+								  <span class="price-currency-symbol">$</span>3.99</bdi>
+							  </span>
+							</td>
+						</tr>
+						<tr class="order-total pt-2 pb-2 border-bottom">
+							<th>Books</th>
+							<td data-title="Total">
+							  <span class="price-amount amount text-primary ps-5 fw-light">
+								<bdi>
+								  <span  class="price-currency-symbol">$</span><span id="total__price">{{grandTotal}}</span></bdi>
+							  </span>
 							</td>
 						</tr>
 						<tr class="order-total pt-2 pb-2 border-bottom">
 							<th>Total</th>
 							<td data-title="Total">
-                      <span class="price-amount amount text-primary ps-5 fw-light">
-                        <bdi>
-                          <span class="price-currency-symbol">$</span>2,400.00</bdi>
-                      </span>
+							  <span class="price-amount amount text-primary ps-5 fw-light">
+								<bdi>
+								  <span class="price-currency-symbol">$</span><span id="grand-total__price"></span></bdi>
+							  </span>
 							</td>
 						</tr>
 						</tbody>
 					</table>
 				</div>
 				<div class="button-wrap d-flex flex-wrap gap-3">
-					<button class="btn">Update Cart</button>
-					<button class="btn">Continue Shopping</button>
+					<a class="btn" href="/index.html">Continue Shopping</a>
 					<button class="btn">Proceed to checkout</button>
 				</div>
 			</div>

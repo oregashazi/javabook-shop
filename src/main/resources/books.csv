@@ -1,6 +1,33 @@
 Title,Description,Author,Image,Pages,Price,Category,Discount,ID
-"Die Verwandlung","Ein surrealistisches Werk über die Metamorphose eines Mannes in ein Insekt.","Franz Kafka",https://i.pinimg.com/236x/29/e9/0f/29e90fbcac66748657516eb12f85832c.jpg,224,12.99,Mystery,10,1
-"Der Prozess","Ein Mann wird ohne ersichtlichen Grund angeklagt und durchläuft ein labyrinthartiges Justizsystem.","Franz Kafka",https://i.pinimg.com/236x/7f/22/d5/7f22d598d7993db72141ce8bd3826b5b.jpg,304,14.99,Fantasy,0,2
-Demiann,"Eine Erzählung über einen jungen Mann und seinen spirituellen Weg.","Hermann Hesse",https://i.pinimg.com/236x/2e/d4/55/2ed455c181ebcfa2436be4559c7c70ab.jpg,192,9.99,Biography,0,3
-"Siddhartha","Die Reise eines jungen Mannes auf der Suche nach Erleuchtung.","Hermann Hesse",https://img3.labirint.ru/rc/1bf200982c933ebf9dfc563f55222a99/363x561q80/books70/692049/cover.jpg?1564201859,256,11.99,Biography,20,4
-"Faust","Eine dramatische Geschichte über einen Gelehrten, der einen Pakt mit dem Teufel schließt.","Johann Wolfgang von Goethe",https://i.pinimg.com/236x/f5/6a/23/f56a2337c49ee22c298b740c77cc8d17.jpg,350,15.99,Non-fiction,0,5
+Die Verwandlung,Ein surrealistisches Werk über die Metamorphose eines Mannes in ein Insekt.,Franz Kafka,https://i.pinimg.com/236x/29/e9/0f/29e90fbcac66748657516eb12f85832c.jpg,224,12.99,Mystery,10,1
+Der Prozess,Ein Mann wird ohne ersichtlichen Grund angeklagt und durchläuft ein labyrinthartiges Justizsystem.,Franz Kafka,https://i.pinimg.com/236x/7f/22/d5/7f22d598d7993db72141ce8bd3826b5b.jpg,304,14.99,Fantasy,0,2
+Demian,Eine Erzählung über einen jungen Mann und seinen spirituellen Weg.,Hermann Hesse,https://i.pinimg.com/236x/2e/d4/55/2ed455c181ebcfa2436be4559c7c70ab.jpg,192,9.99,Biography,0,3
+Siddhartha,Die Reise eines jungen Mannes auf der Suche nach Erleuchtung.,Hermann Hesse,https://img3.labirint.ru/rc/1bf200982c933ebf9dfc563f55222a99/363x561q80/books70/692049/cover.jpg?1564201859,256,11.99,Biography,20,4
+Faust,"Eine dramatische Geschichte über einen Gelehrten, der einen Pakt mit dem Teufel schließt.",Johann Wolfgang von Goethe,https://i.pinimg.com/236x/f5/6a/23/f56a2337c49ee22c298b740c77cc8d17.jpg,350,15.99,Non-fiction,0,5
+The Silent Patient,Only she knows what happened.,Alex Michaelides,https://diybookcovers.com/wp-content/uploads/2023/07/scifi4thumb.jpg,300,8.00,Mystery,0,6
+To Kill a Mockingbird,A gripping tale of racial injustice in the Deep South.,Harper Lee,https://i.pinimg.com/564x/a7/f6/48/a7f648189d3039f05ffec3bbc56bbd7d.jpg,281,7.99,Fiction,10,7
+1984,A dystopian novel set in a totalitarian society ruled by Big Brother.,George Orwell,https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8pQgJ6FwEyD8aybvbbudrtTY8O_u1plO2oQXEi_URp0qdf4Ajuc99jOGIyFWAzwqJNvA&usqp=CAU,328,6.99,Fiction,0,8
+The Great Gatsby,A classic novel of the Roaring Twenties.,F. Scott Fitzgerald,https://m.media-amazon.com/images/I/81gMf5bvGrL._AC_UY436_FMwebp_QL65_.jpg,180,10.99,Fiction,5,9
+Brave New World,A dystopian vision of a future society.,Aldous Huxley,https://marketplace.canva.com/EAFf0E5urqk/1/0/1003w/canva-blue-and-green-surreal-fiction-book-cover-53S3IzrNxvY.jpg,259,9.99,Fiction,0,10
+Moby Dick,The epic tale of Captain Ahab's obsession with the white whale.,Herman Melville,https://cdn.prod.website-files.com/63a9fb94e473f36dbe99c1b1/65bbd530d9e51475c21ab313_zcg2SvGTSlyssLZPXO6Z.webp,635,11.50,Fiction,0,11
+War and Peace,A panoramic view of Russian society during the Napoleonic Wars.,Leo Tolstoy,https://www.designforwriters.com/wp-content/uploads/2017/10/design-for-writers-book-cover-tf-2-a-million-to-one.jpg,1225,18.99,Fiction,15,12
+Crime and Punishment,A psychological exploration of crime and guilt.,Fyodor Dostoevsky,https://popgoesthereader.com/wp-content/uploads/2022/08/DJABBIC-Fantasy-09.png,576,14.99,Fiction,10,13
+Pride and Prejudice,A classic tale of love and misunderstandings.,Jane Austen,https://m.media-amazon.com/images/I/71eogxZGAFL._AC_UY436_FMwebp_QL65_.jpg,279,8.99,Fiction,0,14
+The Catcher in the Rye,The story of a teenager's rebellion against the adult world.,J.D. Salinger,https://m.media-amazon.com/images/I/81YkqyaFVEL._AC_UY436_FMwebp_QL65_.jpg,277,6.99,Fiction,5,15
+The Hobbit,The adventures of Bilbo Baggins in Middle-earth.,J.R.R. Tolkien,https://m.media-amazon.com/images/I/71-7VRV8RvL._AC_UY436_FMwebp_QL65_.jpg,310,12.50,Fantasy,0,16
+Anna Karenina,A tragic tale of love and infidelity in Russian high society.,Leo Tolstoy,https://m.media-amazon.com/images/I/91Kd+kTooAL._AC_UY436_FMwebp_QL65_.jpg,864,16.99,Fiction,20,17
+The Odyssey,Homer's epic tale of Odysseus' journey home.,Homer,https://m.media-amazon.com/images/I/81aiZzyMKLL._AC_UY436_QL65_.jpg,541,13.50,Classic,0,18
+The Divine Comedy,"Dante's journey through Hell, Purgatory, and Paradise.",Dante Alighieri,https://m.media-amazon.com/images/I/91868k2+gUL._AC_UY436_FMwebp_QL65_.jpg,798,17.99,Classic,0,19
+Les Misérables,The story of Jean Valjean's quest for redemption.,Victor Hugo,https://m.media-amazon.com/images/I/71pIEVU3EeL._AC_UY436_FMwebp_QL65_.jpg,1463,19.99,Fiction,10,20
+A Tale of Two Cities,A story of revolution and sacrifice set in London and Paris.,Charles Dickens,https://i.pinimg.com/originals/c6/a2/d7/c6a2d7cabc1c19878c1d60d4e88637f5.jpg,489,9.50,Fiction,0,21
+Ulysses,A modernist novel that chronicles the experiences of Leopold Bloom in Dublin.,James Joyce,https://m.media-amazon.com/images/I/71gE96yxAbL._AC_UY436_QL65_.jpg,732,14.99,Fiction,5,22
+The Brothers Karamazov,"A philosophical novel exploring faith, doubt, and reason.",Fyodor Dostoevsky,https://m.media-amazon.com/images/I/81UxgyI55BL._AC_UY436_FMwebp_QL65_.jpg,824,15.50,Fiction,0,23
+Great Expectations,The story of an orphan named Pip and his growth and personal development.,Charles Dickens,https://m.media-amazon.com/images/I/81cquiyLW8L._AC_UY436_FMwebp_QL65_.jpg,505,10.99,Fiction,0,24
+Wuthering Heights,A story of passion and revenge on the Yorkshire moors.,Emily Brontë,https://m.media-amazon.com/images/I/91x9mCHr1HL._AC_UY436_QL65_.jpg,416,8.99,Fiction,0,25
+Jane Eyre,The life and trials of an orphaned girl who becomes a governess.,Charlotte Brontë,https://m.media-amazon.com/images/I/71sQDwbj13L._AC_UY436_FMwebp_QL65_.jpg,500,9.99,Fiction,10,26
+The Old Man and The Sea,The epic struggle of an old fisherman with a giant marlin.,Ernest Hemingway,https://m.media-amazon.com/images/I/81a1hKsCKbL._AC_UY436_QL65_.jpg,132,7.99,Fiction,0,27
+The Catch-22,A satirical novel about the absurdities of war.,Joseph Heller,https://m.media-amazon.com/images/I/61wyD6JBmFL._AC_UY436_FMwebp_QL65_.jpg,453,9.99,Fiction,0,28
+Heart of Darkness,A voyage into the Congo Free State in search of a mysterious figure named Kurtz.,Joseph Conrad,https://m.media-amazon.com/images/I/71rro50QeLL._AC_UY436_FMwebp_QL65_.jpg,112,6.99,Fiction,0,29
+The Road,A post-apocalyptic tale of a father and son's journey to survive.,Cormac McCarthy,https://m.media-amazon.com/images/I/81I7vXqjEML._AC_UY436_QL65_.jpg,287,8.99,Fiction,5,30
+The Grapes of Wrath,A story about the Joad family traveling from the Dust Bowl to California during the Great Depression.,John Steinbeck,https://m.media-amazon.com/images/I/71tQ71QaNML._AC_UY436_QL65_.jpg,455,12.99,Fiction,0,31
+The Picture of Dorian Gray,A novel about a man who remains young while his portrait ages.,Oscar Wilde,https://m.media-amazon.com/images/I/71u59k0c6DL._AC_UY436_QL65_.jpg,254,7.99,Fiction,0,32

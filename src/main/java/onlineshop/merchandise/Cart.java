@@ -61,6 +61,15 @@ public class Cart {
         return false;
     }
 
+    public boolean setQuantity(int articleNo, int quantity) {
+        CartItem existingItem = findItem(articleNo);
+        if (existingItem != null) {
+            existingItem.setQuantity(quantity);
+            return true;
+        }
+        return false;
+    }
+
 
     public boolean decreaseQuantity(int articleNo) {
         CartItem existingItem = findItem(articleNo);

@@ -24,6 +24,7 @@ public class CSVReader {
                 }
 
                 String[] columns = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                System.out.println(columns.length);
 
                 Book book = new Book();
                 book.setTitle(columns[0].replace("\"", ""));

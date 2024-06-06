@@ -98,14 +98,19 @@
 		<path fill="currentColor" d="m5.50835165 12.5914912c-.00106615-.0057657-.00203337-.011566-.00289985-.0173991l-1.22011509-7.32069058c-.12054699-.72328196-.74633216-1.25340152-1.47959089-1.25340152h-.30574582c-.27614237 0-.5-.22385763-.5-.5s.22385763-.5.5-.5h.30574582c1.1918179 0 2.21327948.84029234 2.44951006 2h16.24474412c.3321894 0 .5720214.31795246.480762.63736056l-2 7.00000004c-.0613288.2146507-.2575218.3626394-.480762.3626394h-12.90976979l.12443308.7465985c.12054699.7232819.74633216 1.2534015 1.47959089 1.2534015h11.30574582c.2761424 0 .5.2238576.5.5s-.2238576.5-.5.5h-11.30574582c-1.22209789 0-2.26507316-.8835326-2.46598481-2.0890025l-.21991747-1.3195048zm-.08478811-6.5914912 1 6h12.69928576l1.7142857-6zm2.57643646 15c-1.1045695 0-2-.8954305-2-2s.8954305-2 2-2 2 .8954305 2 2-.8954305 2-2 2zm0-1c.55228475 0 1-.4477153 1-1s-.44771525-1-1-1-1 .4477153-1 1 .44771525 1 1 1zm9 1c-1.1045695 0-2-.8954305-2-2s.8954305-2 2-2 2 .8954305 2 2-.8954305 2-2 2zm0-1c.5522847 0 1-.4477153 1-1s-.4477153-1-1-1-1 .4477153-1 1 .4477153 1 1 1z"/>
 	</symbol>
 </svg>
-<div class="search-popup">
-	<div class="search-popup-container">
+<div class="search__el">
+	<div class="search__container">
 
-		<form role="search" method="get" class="search-form" action="">
-			<input type="search" id="search-form" class="search-field" placeholder="Type and press enter" value="" name="s"/>
-			<button type="submit" class="search-submit">
-				<svg class="search">
+		<form method="get" class="search__form" action="">
+			<input type="text"  class="search__input" placeholder="Type and press enter" value="" name="s"/>
+			<button type="submit" class="">
+				<svg class="">
 					<use xlink:href="#search"></use>
+				</svg>
+			</button>
+			<button class="search__close-button">
+				<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+					<path d="M 25 2 C 12.309534 2 2 12.309534 2 25 C 2 37.690466 12.309534 48 25 48 C 37.690466 48 48 37.690466 48 25 C 48 12.309534 37.690466 2 25 2 z M 25 4 C 36.609534 4 46 13.390466 46 25 C 46 36.609534 36.609534 46 25 46 C 13.390466 46 4 36.609534 4 25 C 4 13.390466 13.390466 4 25 4 z M 32.990234 15.986328 A 1.0001 1.0001 0 0 0 32.292969 16.292969 L 25 23.585938 L 17.707031 16.292969 A 1.0001 1.0001 0 0 0 16.990234 15.990234 A 1.0001 1.0001 0 0 0 16.292969 17.707031 L 23.585938 25 L 16.292969 32.292969 A 1.0001 1.0001 0 1 0 17.707031 33.707031 L 25 26.414062 L 32.292969 33.707031 A 1.0001 1.0001 0 1 0 33.707031 32.292969 L 26.414062 25 L 33.707031 17.707031 A 1.0001 1.0001 0 0 0 32.990234 15.986328 z"></path>
 				</svg>
 			</button>
 		</form>
@@ -145,63 +150,92 @@
 			<a class="navbar-brand " href="index.html">
 				<img src="images/main-logo.jpeg" class="logo">
 			</a>
-			<button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas"
+			<ul class="menu__pages-list menu__desktop">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="cart.html">Cart</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="checkout.html">Checkout</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="contact.html">Contact</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="about.html">About</a>
+				</li>
+			</ul>
+			<div class="home__right">
+				<button class="menu__search search__button search__header">
+					<img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="">
+				</button>
+				<button class="book__cart --desktop">
+					<svg class="search">
+						<use xlink:href="#shop-cart"></use>
+					</svg>
+					<p>{{numOfCartItems}}</p>
+				</button>
+			</div>
+
+			<button class="navbar-toggler d-flex d-lg-none order-3 p-2 menu__open-button" type="button" data-bs-toggle="offcanvas"
 							data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
 				<svg class="navbar-icon">
 					<use xlink:href="#navbar-icon"></use>
 				</svg>
 			</button>
-			<div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
-				<div class="offcanvas-header px-4 pb-0">
-					<a class="navbar-brand" href="index.html">
-						<img src="images/main-logo.jpeg" class="logo">
-					</a>
-					<button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close"
-									data-bs-target="#bdNavbar"></button>
-				</div>
-				<div class="offcanvas-body">
-					<ul id="navbar"
-							class="navbar-nav text-uppercase justify-content-start justify-content-lg-center align-items-start align-items-lg-center flex-grow-1">
-						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="cart.html">Cart</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="checkout.html">Checkout</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Contact</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
-						</li>
-					</ul>
-
-					<div class="user-items d-flex">
-						<ul class="d-flex justify-content-end list-unstyled mb-0">
-							<li class="search-item pe-3">
-								<a href="#" class="search-button">
-									<svg class="search">
-										<use xlink:href="#search"></use>
-									</svg>
-								</a>
-							</li>
-							<li>
-								<button class="book__cart">
-									<svg class="search">
-										<use xlink:href="#shop-cart"></use>
-									</svg>
-								</button>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
 		</div>
 	</nav>
 </header>
+
+<div class="menu__container --is-hidden">
+	<div class="menu__top-container">
+		<div class="menu__header">
+			<a class="menu__logo" href="index.html">
+				<img src="images/main-logo.jpeg" class="logo">
+			</a>
+			<div class="menu__close-button">
+				<img class="menu__logo-image" src="https://img.icons8.com/?size=512&id=46&format=png">
+			</div>
+		</div>
+
+		<div class="menu__pages">
+			<ul class="menu__pages-list">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="cart.html">Cart</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="checkout.html">Checkout</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="contact.html">Contact</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="about.html">About</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="menu__bottom-container">
+		<button class="menu__search search__button">
+			<img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" alt="">
+		</button>
+
+		<button class="book__cart">
+			<svg class="search">
+				<use xlink:href="#shop-cart"></use>
+			</svg>
+			<p>{{numOfCartItems}}</p>
+		</button>
+	</div>
+</div>
+
+<div class="menu__background --is-hidden"></div>
 
 <div id="shop-cart" class="header__overflow -close">
 	<div class="cart__container">
@@ -251,7 +285,9 @@
 				</a>
 			</div>
 
-			<button id="close-cart">close</button>
+			<button id="close-cart">
+				<img src="https://img.icons8.com/?size=100&id=59754&format=png&color=000000" alt="">
+			</button>
 		</div>
 	</div>
 </div>
