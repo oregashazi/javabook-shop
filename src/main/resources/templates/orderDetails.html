@@ -1,0 +1,30 @@
+
+<p>Order ID: {{ order.id }}</p>
+<p>First Name: {{ order.firstname }}</p>
+<p>Last Name: {{ order.lastname }}</p>
+
+
+<h2>Cart Items</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Article No</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {{#cartItems}}
+    <tr>
+        <td>{{ articleNo }}</td>
+        <td>{{ name }}</td>
+        <td>{{ price }}</td>
+        <td>{{ quantity }}</td>
+        <!-- И так далее -->
+    </tr>
+    {{/cartItems}}
+    </tbody>
+</table>
+

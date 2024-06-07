@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  {{> partials/htmlHead }}
+</head>
+<body>
+{{> partials/header }}
+
+{{#books}}
+<h1>{{title}}</h1>
+<p>{{description}}</p>
+<p>{{author}}</p>
+<p>{{price}}</p>
+<p>{{pages}}</p>
+<img src="{{image}}" alt="Book Image">
+{{/books}}
+
+<!--<form action="/cart/add" method="post">-->
+<!--  <input type="hidden" name="articleNo" value="{{articleNo}}">-->
+<!--  <input type="number" name="quantity" value="1" min="1">-->
+<!--  <button type="submit">Add to Cart</button>-->
+<!--</form>-->
+
+{{> partials/footer }}
+</body>
+</html>

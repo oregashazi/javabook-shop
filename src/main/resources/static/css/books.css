@@ -451,3 +451,7 @@ list-style: none;
 .small__text {
   font-size: 12px;
 }
+
+.error {
+  border-color: red;
+}

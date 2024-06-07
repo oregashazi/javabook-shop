@@ -35,7 +35,7 @@ public class CSVReader {
                 book.setPrice(Double.parseDouble(columns[5].replace(",", ".")));
                 book.setCategory(columns[6].replace("\"", ""));
                 book.setDiscount(Integer.parseInt(columns[7].replace(",", ".")));
-
+                book.setId(Integer.parseInt(columns[8].replace(",", ".")));
                 books.add(book);
             }
         } catch (IOException e) {

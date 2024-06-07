@@ -30,6 +30,10 @@ public class Cart {
         return numOfItems;
     }
 
+    public void clearCart() {
+        items.clear();
+    }
+
     /**
      * Sums all cart items, taking their quantity into account
      * @return formattedNumber {@link String}

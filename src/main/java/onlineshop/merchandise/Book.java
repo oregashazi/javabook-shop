@@ -1,5 +1,8 @@
 package onlineshop.merchandise;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Book extends Article {
     public String title;
     public String description;
@@ -9,6 +12,7 @@ public class Book extends Article {
     public double price;
     public String category;
     public int discount;
+    public int id;
 
 
     // Getters and setters
@@ -78,6 +82,14 @@ public class Book extends Article {
 
     public void setDiscount(int discount) {
         this.discount = discount;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
 

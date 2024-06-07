@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Controller
 public class ShopController extends FunctionController {
@@ -59,6 +58,22 @@ public class ShopController extends FunctionController {
         handleSortingPagination(model, sort, page, search);
         return "booklist";
     }
+
+    @GetMapping(value = {"/book/{id}"})
+    public String viewBook(Model model, @PathVariable("id") int id) {
+        Book book = shop.getBookById(id);
+
+        if (book == null) {
+            return "error";
+        }
+
+        model.addAttribute("book", book);
+
+        getCartItems(model);
+
+        return "book";
+    }
+
 
     @GetMapping(value = {"/{name}.html"})
     public String htmlMapping(Model model, @PathVariable("name") String name, HttpSession session) {

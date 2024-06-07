@@ -30,7 +30,7 @@
 
 <section id="checkout" class="checkout-wrap padding-medium">
 	<div class="container">
-		<form class="form-group">
+		<form class="form-group" id="billingForm" action="/create-order" method="POST">
 			<div class="row d-flex flex-wrap">
 				<div class="col-lg-6">
 					<h3 class="mb-3">Billing Details</h3>
@@ -39,34 +39,32 @@
 						<input type="text" id="fname" name="firstname" class="form-control mt-2 mb-4 ps-3">
 						<label for="lname">Last Name*</label>
 						<input type="text" id="lname" name="lastname" class="form-control mt-2 mb-4 ps-3">
-						<label for="cname">Company Name(optional)*</label>
+						<label for="cname">Company Name (optional)</label>
 						<input type="text" id="cname" name="companyname" class="form-control mt-2 mb-4">
-						<label for="cname">Country / Region*</label>
-						<select class="form-select form-control mt-2 mb-4" aria-label="Default select example">
+						<label for="country">Country / Region*</label>
+						<select id="country" class="form-select form-control mt-2 mb-4" aria-label="Default select example">
 							<option selected="" hidden="">United States</option>
 							<option value="1">UK</option>
 							<option value="2">Australia</option>
 							<option value="3">Canada</option>
 						</select>
-						<label for="address">Street Address*</label>
-						<input type="text" id="adr" name="address" placeholder="House number and street name"
-									 class="form-control mt-3 ps-3 mb-3">
-						<input type="text" id="adr" name="address" placeholder="Appartments, suite, etc."
-									 class="form-control ps-3 mb-4">
+						<label for="adr1">Street Address*</label>
+						<input type="text" id="adr1" name="address1" placeholder="House number and street name" class="form-control mt-3 ps-3 mb-3">
+						<input type="text" id="adr2" name="address2" placeholder="Appartments, suite, etc." class="form-control ps-3 mb-4">
 						<label for="city">Town / City *</label>
 						<input type="text" id="city" name="city" class="form-control mt-3 ps-3 mb-4">
 						<label for="state">State *</label>
-						<select class="form-select form-control mt-2 mb-4" aria-label="Default select example">
+						<select id="state" class="form-select form-control mt-2 mb-4" aria-label="Default select example">
 							<option selected="" hidden="">Florida</option>
 							<option value="1">New York</option>
 							<option value="2">Chicago</option>
 							<option value="3">Texas</option>
-							<option value="3">San Jose</option>
-							<option value="3">Houston</option>
+							<option value="4">San Jose</option>
+							<option value="5">Houston</option>
 						</select>
 						<label for="zip">Zip Code *</label>
 						<input type="text" id="zip" name="zip" class="form-control mt-2 mb-4 ps-3">
-						<label for="email">Phone *</label>
+						<label for="phone">Phone *</label>
 						<input type="text" id="phone" name="phone" class="form-control mt-2 mb-4 ps-3">
 						<label for="email">Email address *</label>
 						<input type="text" id="email" name="email" class="form-control mt-2 mb-4 ps-3">
@@ -76,9 +74,8 @@
 					<div>
 						<h3 class="mb-3">Additional Information</h3>
 						<div class="billing-details">
-							<label for="fname">Order notes (optional)</label>
-							<textarea class="form-control pt-3 pb-3 ps-3 mt-2"
-												placeholder="Notes about your order. Like special notes for delivery."></textarea>
+							<label for="notes">Order notes (optional)</label>
+							<textarea id="notes" name="notes" class="form-control pt-3 pb-3 ps-3 mt-2" placeholder="Notes about your order. Like special notes for delivery."></textarea>
 						</div>
 					</div>
 
@@ -90,29 +87,29 @@
 								<tr class="subtotal pt-2 pb-2 border-top border-bottom">
 									<th>Lieferung</th>
 									<td data-title="Subtotal">
-                          <span class="price-amount amount text-primary ps-5 fw-light">
-                            <bdi>
-                              <span class="price-currency-symbol">$</span>3.99
-                            </bdi>
-                          </span>
+                                    <span class="price-amount amount text-primary ps-5 fw-light">
+                                        <bdi>
+                                            <span class="price-currency-symbol">$</span>3.99
+                                        </bdi>
+                                    </span>
 									</td>
 								<tr class="subtotal pt-2 pb-2 border-top border-bottom">
 									<th>Discount</th>
 									<td data-title="Subtotal">
-                          <span class="price-amount amount text-primary ps-5 fw-light">
-                            <bdi>
-                              <span class="price-currency-symbol">$</span>{{totalDiscountAmount}}
-                            </bdi>
-                          </span>
+                                    <span class="price-amount amount text-primary ps-5 fw-light">
+                                        <bdi>
+                                            <span class="price-currency-symbol">$</span>{{totalDiscountAmount}}
+                                        </bdi>
+                                    </span>
 									</td>
 								</tr>
 								<tr class="order-total pt-2 pb-2 border-bottom">
 									<th>Total</th>
 									<td data-title="Total">
-                          <span class="price-amount amount text-primary ps-5 fw-light">
-                            <bdi>
-                              <span class="price-currency-symbol">$</span>{{totalWithDiscounts}}</bdi>
-                          </span>
+                                    <span class="price-amount amount text-primary ps-5 fw-light">
+                                        <bdi>
+                                            <span class="price-currency-symbol">$</span>{{totalWithDiscounts}}</bdi>
+                                    </span>
 									</td>
 								</tr>
 								</tbody>
@@ -120,51 +117,119 @@
 						</div>
 						<div class="list-group">
 							<label class="list-group-item d-flex gap-2 border-0">
-								<input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios"
-									   id="listGroupRadios1" value="" checked>
+								<input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios1" value="Direkt bank transfer" checked>
 								<span>
-                      			<p class="mb-1">Direct bank transfer</p>
-                      				<small>Make your payment directly into our bank account. Please use your Order ID. Your order will
-                        			shipped after funds have cleared in our account.</small>
+                                <p class="mb-1">Direct bank transfer</p>
+                                <small>Make your payment directly into our bank account. Please use your Order ID. Your order will be shipped after funds have cleared in our account.</small>
 							</label>
 							<label class="list-group-item d-flex gap-2 border-0">
-								<input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios"
-											 id="listGroupRadios2" value="">
+								<input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios2" value="Check payments">
 								<span>
-                      <p class="mb-1">Check payments</p>
-                      <small>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store
-                        Postcode.</small>
-                    </span>
+                                <p class="mb-1">Check payments</p>
+                                <small>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</small>
+                            </span>
 							</label>
 							<label class="list-group-item d-flex gap-2 border-0">
-								<input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios"
-											 id="listGroupRadios3" value="">
+								<input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios3" value="Cash on delivery">
 								<span>
-                      <p class="mb-1">Cash on delivery</p>
-                      <small>Pay with cash upon delivery.</small>
-                    </span>
+                                <p class="mb-1">Cash on delivery</p>
+                                <small>Pay with cash upon delivery.</small>
+                            </span>
 							</label>
 							<label class="list-group-item d-flex gap-2 border-0">
-								<input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios"
-											 id="listGroupRadios3" value="">
+								<input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios4" value="Paypal">
 								<span>
-                      <p class="mb-1">Paypal</p>
-                      <small>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</small>
-                    </span>
+                                <p class="mb-1">Paypal</p>
+                                <small>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.</small>
+                            </span>
 							</label>
 						</div>
 						<div class="button-wrap mt-3">
-							<button type="submit" name="submit" class="btn">Place an order</button>
+							<button type="submit" class="btn btn-primary">Place an order</button>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 		</form>
+
 	</div>
 </section>
 
 {{> partials/footer }}
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const form = document.getElementById('billingForm');
+
+		// Функции валидации
+		const validateEmail = (email) => {
+			return email.match(
+					/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+			);
+		};
+
+		const validateName = (name) => {
+			return /^[a-zA-ZäöüßÄÖÜ ]+$/.test(name);
+		};
+
+		const validateAddress = (address) => {
+			return /^[a-zA-ZäöüßÄÖÜ0-9\s.,'-]+$/.test(address);
+		};
+
+		const validateHouseNumber = (houseNumber) => {
+			return /^[a-zA-ZäöüßÄÖÜ0-9]+$/.test(houseNumber);
+		};
+
+		const validatePhoneNumber = (phoneNumber) => {
+			return /^[+]?[0-9]{0,3}?[-\s\.]?[0-9]{1,4}?[-\s\.]?[0-9]{1,4}?[-\s\.]?[0-9]{1,9}$/im.test(phoneNumber);
+		};
+
+		form.addEventListener('submit', (event) => {
+			const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
+			let isValid = true;
+
+			inputs.forEach(input => {
+				const value = input.value.trim();
+				let validationFunc;
+
+				switch (input.name) {
+					case 'firstname':
+					case 'lastname':
+						validationFunc = validateName;
+						break;
+					case 'address1':
+						validationFunc = validateAddress;
+						break;
+					case 'address2':
+						validationFunc = validateHouseNumber;
+						break;
+					case 'phone':
+						validationFunc = validatePhoneNumber;
+						break;
+					case 'email':
+						validationFunc = validateEmail;
+						break;
+					default:
+						validationFunc = null;
+						break;
+				}
+
+				if (validationFunc && !validationFunc(value)) {
+					isValid = false;
+					input.classList.add('is-invalid');
+				} else {
+					input.classList.remove('is-invalid');
+					input.classList.add('is-valid');
+				}
+			});
+
+			if (!isValid) {
+				event.preventDefault();
+				alert('Please correct the errors in the form.');
+			}
+		});
+	});
+
+</script>
 </body>
 </html>

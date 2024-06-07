@@ -25,7 +25,8 @@ public class Shop {
     public static final DecimalFormat df = new DecimalFormat("0.00", DecimalFormatSymbols.getInstance(Locale.US));
     private final static Logger log = LogManager.getLogger(Shop.class);
     private static List<Book> books = new ArrayList<>();
-    private static List<Book> filteredBooks  = new ArrayList<>();;
+    private static List<Book> filteredBooks  = new ArrayList<>();
+    private List<Book> new_book = new ArrayList<>();
 
     public static void main(String[] args) {
         final String CSV_FILE_PATH = "src/main/resources/books.csv";
@@ -44,6 +45,15 @@ public class Shop {
             return 0;
         }
         return filteredBooks.size();
+    }
+
+    public Book getBookById(int id) {
+        for (Book book : new_book) {
+            if (book.getId() == id) {
+                return book;
+            }
+        }
+        return null; // Книга не найдена
     }
 
 
