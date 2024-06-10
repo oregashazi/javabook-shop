@@ -13,8 +13,6 @@ public class OrderService {
     }
 
     public Order createOrder(Order order) {
-        List<CartItem> cartItems = cart.getItems();
-        order.setCartItems(cartItems);
         orders.add(order);
         cart.clearCart();
         return order;

@@ -130,11 +130,13 @@ public class Order {
         this.creationDate = creationDate;
     }
 
-    public List<CartItem> getCartItems() {
+    public List<CartItem> getCartItemsOrder() {
+        System.out.println("getCartitems " + cartItems.size());
         return cartItems;
     }
 
     public void setCartItems(List<CartItem> cartItems) {
+        System.out.println("setCartItems " + cartItems.size() );
         this.cartItems = cartItems;
     }
 }
